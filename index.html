@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback Pop-up</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Feedback-knapp -->
+  <button id="öppnaPopup">Lämna din feedback</button>
+
+  <!-- Feedback Pop-up -->
+  <div id="feedbackFönster" class="popupp-ruta dold">
+    <div class="popup-innehåll">
+      <h2>Lämna din recension</h2>
+      <form id="feedbackFormulär">
+        <label for="betyg">Betyg (1-5):</label>
+        <select id="betyg" required>
+          <option value="">Välj ett betyg</option>
+          <option value="1">1 - Mycket dåligt</option>
+          <option value="2">2 - Underkänt</option>
+          <option value="3">3 - Godkänt</option>
+          <option value="4">4 - Bra</option>
+          <option value="5">5 - Utmärkt</option>
+        </select>
+
+        <label for="kommentar">Kommentar:</label>
+        <textarea id="kommentar" placeholder="Skriv din feedback här..." required></textarea>
+
+        <button type="submit">Skicka</button>
+        <button type="button" id="stängPopup">Stäng</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
