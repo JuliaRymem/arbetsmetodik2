@@ -11,6 +11,30 @@
     <script src="app.js" defer></script>
 </head>
 <body>
+  
+  <div class="container">
+    <!-- Feedbacksektion -->
+    <div class="section">
+      <h1>Lämna din feedback</h1>
+      <p class="grön-text">Vi uppskattar dina åsikter!</p>
+      <form>
+        <label for="betyg">Betyg (1-5):</label>
+        <select id="betyg" required>
+          <option value="">Välj ett betyg</option>
+          <option value="1">1 - Mycket dåligt</option>
+          <option value="2">2 - Underkänt</option>
+          <option value="3">3 - Godkänt</option>
+          <option value="4">4 - Bra</option>
+          <option value="5">5 - Utmärkt</option>
+        </select>
+
+        <label for="kommentar">Kommentar:</label>
+        <textarea id="kommentar" placeholder="Skriv din feedback här..." required></textarea>
+
+        <button type="submit">Skicka feedback</button>
+      </form>
+    </div>
+  </div>
 
     <section class="instructions" id="instructions">
 

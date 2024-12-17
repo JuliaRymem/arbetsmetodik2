@@ -1,3 +1,90 @@
+/* Grundinställningar för sidan */
+body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  background-color: #ffebde; /* Vit/beige bakgrund */
+  color: #022143; /* Standard blå textfärg */
+  line-height: 1.6;
+}
+
+/* Centrera allt innehåll */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Full höjd */
+  padding: 20px;
+}
+
+/* Sektion för feedback */
+.section {
+  background-color: #fff;
+  padding: 30px;
+  margin: 15px auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  text-align: center;
+}
+
+/* Rubriker */
+h1, h2 {
+  font-weight: 800;
+  color: #022143;
+  margin-bottom: 10px;
+}
+
+/* Kommentar och feedback-formulär */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Avstånd mellan element */
+  margin-top: 15px;
+}
+
+label {
+  text-align: left;
+  font-weight: 600;
+}
+
+textarea, select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; /* Inkludera padding i bredd */
+}
+
+textarea {
+  resize: none; /* Förhindra ändring av storlek */
+  height: 120px; /* Standardhöjd för textfält */
+}
+
+button {
+  background-color: #022143; /* Blå knapp */
+  color: #ffebde; /* Vit/beige text */
+  border: none;
+  padding: 12px 18px;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0e8733; /* Grön vid hover */
+  color: #fff;
+}
+
+.grön-text {
+  color: #0e8733;
+  font-weight: 600;
+  margin-top: 10px;
+}
 * {
     box-sizing: border-box;
     padding: 0;
