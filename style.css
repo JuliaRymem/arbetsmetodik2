@@ -1,11 +1,65 @@
-/* Grundinställningar för sidan */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
 body {
+    width: 100svw;
+    height: 100svh;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.main-menu {
+    min-height: 100vh;
+    width: 100vw;
+    background-color: #022143;
+    padding: 15px;
+    color: #0e8733;
+    
+}
+.section-menu {
+    background-color: #FFEBDE;
+    padding: 5px;
+}
+.section-menu h2 {
+    text-align: center;
+    font-size: 5vw;
+    margin: 20px;
+}
+.menu-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10vw;
+    margin: 20px;
+}
+.menu-item-img {
+    width: 20vw;
+    border: black solid 2px;
+}
+.menu-text {
+    margin: 10px;
+    width: 100vw;
+}
+.menu-text h3 {
+    font-size: 3.5vw;
+}
+.menu-text p {
+    font-size: 2.5vw;
+}
+.menu-button {
+    width: 20vw;   
+    height: 10%;
+    font-size: 3vw;
+/* Grundinställningar för sidan */
+/*body {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   margin: 0;
   padding: 0;
-  background-color: #ffebde; /* Vit/beige bakgrund */
-  color: #022143; /* Standard blå textfärg */
+  background-color: #ffebde;  Vit/beige bakgrund 
+  color: #022143;  Standard blå textfärg 
   line-height: 1.6;
 }
 
@@ -31,18 +85,18 @@ body {
 }
 
 /* Rubriker */
-h1, h2 {
+/*h1, h2 {
   font-weight: 800;
   color: #022143;
   margin-bottom: 10px;
 }
 
 /* Kommentar och feedback-formulär */
-form {
+/*form {
   display: flex;
   flex-direction: column;
   gap: 15px; /* Avstånd mellan element */
-  margin-top: 15px;
+  /*margin-top: 15px;
 }
 
 label {
@@ -57,17 +111,17 @@ textarea, select {
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box; /* Inkludera padding i bredd */
-}
+/*}
 
 textarea {
   resize: none; /* Förhindra ändring av storlek */
-  height: 120px; /* Standardhöjd för textfält */
-}
+  /*height: 120px; /* Standardhöjd för textfält */
+/*}
 
 button {
   background-color: #022143; /* Blå knapp */
-  color: #ffebde; /* Vit/beige text */
-  border: none;
+  /*color: #ffebde; /* Vit/beige text */
+  /*border: none;
   padding: 12px 18px;
   border-radius: 5px;
   font-weight: 600;
@@ -77,25 +131,13 @@ button {
 
 button:hover {
   background-color: #0e8733; /* Grön vid hover */
-  color: #fff;
-}
+ /* color: #fff;
+}*/
 
 .grön-text {
   color: #0e8733;
   font-weight: 600;
   margin-top: 10px;
-}
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-body {
-    width: 100svw;
-    height: 100svh;
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: normal;
 }
 .instructions {
     display: flex; /* Ändra till :none för att dölja*/
