@@ -1,46 +1,63 @@
-// Hämta element
-const öppnaPopupKnapp = document.getElementById("öppnaPopup");
-const stängPopupKnapp = document.getElementById("stängPopup");
-const feedbackFönster = document.getElementById("feedbackFönster");
-const feedbackFormulär = document.getElementById("feedbackFormulär");
+let cart = []; //Skapar cart Array
+let totalPrice = 0; //Sätter totala priset till 0 i början
 
-// Visa pop-up
-öppnaPopupKnapp.addEventListener("click", () => {
-  feedbackFönster.classList.remove("dold");
-});
+function addItemtoCart(itemName, itemPrice) { //button funktionen
 
-// Stäng pop-up
-stängPopupKnapp.addEventListener("click", () => {
-  feedbackFönster.classList.add("dold");
-});
+    const findExistingItem = cart.find(item => item.name === itemName); //Letar efter i cart Array om det finns samma item namn
 
-// Hantera formulärinlämning
-feedbackFormulär.addEventListener("submit", (e) => {
-  e.preventDefault();
+    if (findExistingItem) { //if funktion för när samma item namn hittas ska det gå upp på quantity nummer istället för att skapa mer li elements
 
-  const betyg = document.getElementById("betyg").value;
-  const kommentar = document.getElementById("kommentar").value;
+        findExistingItem.quantity += 1; 
+    } else {
+        cart.push({name: itemName, price: itemPrice, quantity: 1});
+    }
 
-  console.log("Betyg:", betyg);
-  console.log("Kommentar:", kommentar);
+    totalPrice += itemPrice; //Plusar ihop allt itemPrice tillsammans
 
-  alert("Tack för din feedback!");
+    updateCartDisplayer(); //Skickar signal till updateCartDisplayer funktionen attden ska köra
+}
 
-  feedbackFormulär.reset();
-  feedbackFönster.classList.add("dold");
-});
+function removeFromCart(itemName, itemPrice) { //Ta bort item funktion
 
-// Funktion för knapp för att stänga Gör-så-här-rutan
-const instructionsPopup = document.getElementById('instructions');
-const instructionsClose = document.getElementById('instructions-close');
+    const findExistingItem = cart.find(item => item.name === itemName); //Letar efter i cart Array om det finns samma item namn
 
-instructionsClose.addEventListener('click', function() {
-    instructionsPopup.style.display = 'none';
-});
+    if (findExistingItem) { //Letar efter i cart Array och tar bort 1 quantity av item, om item quantity = 0 går item helt bort
+        findExistingItem.quantity -= 1;
 
-// Funktion för "HJÄLP"-knapp i menyraden som öppnar Gör-så-här-rutan
-// const HJÄLPKNAPP = document.getElementById('HJÄLPKNAPP');
+        if (findExistingItem.quantity === 0) {
 
-// HJÄLPKNAPP.addEventListener('click', function() {
-//     instructionsPopup.style.display = 'flex';
-// });
+            cart = cart.filter(item => item.name !== itemName);
+        }
+
+        totalPrice -= itemPrice; //Tar bort item pris
+        if (totalPrice < 0) totalPrice = 0; //Stoppar total pris till 0 så att numret inte går negativt
+    }
+
+    updateCartDisplayer(); //Skickar signal till updateCartDisplayer funktionen attden ska köra
+}
+
+function updateCartDisplayer() { //kundvagns funktionen, här visas item namn och dess quantity samt item priset
+    const cartItemNameContainer = document.getElementById('cart-items'); 
+    const totalItemPrice = document.getElementById('total-price'); //hämtar in id från html filen
+
+    cartItemNameContainer.innerHTML = ''; //Rensar allt i kundvagnens display varje refresh
+
+    cart.forEach(item => { //Lägger till item till kundvagnen
+        const listitem = document.createElement('li');
+        listitem.textContent = `x${item.quantity} ${item.name} ${item.price.toFixed(2)}kr`;
+
+        const removeButton = document.createElement('button'); //skapar ta bort button
+        removeButton.textContent = 'X';
+        removeButton.style.marginLeft = '5px';
+        removeButton.style.padding = '2px 4px';
+        removeButton.style.backgroundColor = '#f80606';
+        removeButton.style.color = '#FFFFFF';
+        removeButton.style.border = '#000000 solid 2px';
+        removeButton.onclick = () => removeFromCart(item.name, item.price); //sätter in removeFromCart funktionen
+
+        listitem.appendChild(removeButton); //lägger till removeButton till listitem
+        cartItemNameContainer.appendChild(listitem); //lägger till listitem till cartItemNameContainer, kundvagnen
+    });
+
+    totalItemPrice.textContent = totalPrice.toFixed(2); //uppdaterar total priset på display
+}
