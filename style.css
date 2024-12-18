@@ -24,29 +24,6 @@ footer p {
   font-size: 12px;
 }
 
-/* Beställ här-knapp */
-.order {
-  position: absolute;
-  right: 5%;
-  font-size: 14px;
-  transform: translateY(-50%);
-  color: #011e4a;
-  background-color: #f3f3f3;
-  border: 2px solid #3a5d87;
-  border-radius: 10px; /* Rundade hörn */
-  padding: 1% 4%;
-  box-sizing: border-box; /* Gör att padding inte påverkar elementets placering */
-  text-decoration: none;
-  text-align: center;
-  font-weight: bolder;
-  transition: all 0.3s ease;
-}
-
-.order:hover {
-  background-color: #ffebde;
-  color: rgb(28, 53, 105);
-}
-
 /* Regler för länkarna i footern */
 .footer-links {
   list-style-type: none;
