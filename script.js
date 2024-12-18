@@ -1,46 +1,24 @@
-// Hämta element
-const öppnaPopupKnapp = document.getElementById("öppnaPopup");
-const stängPopupKnapp = document.getElementById("stängPopup");
-const feedbackFönster = document.getElementById("feedbackFönster");
-const feedbackFormulär = document.getElementById("feedbackFormulär");
+const stars = document.querySelectorAll('.feedback-stars .star');
 
-// Visa pop-up
-öppnaPopupKnapp.addEventListener("click", () => {
-  feedbackFönster.classList.remove("dold");
+stars.forEach(star => {
+  star.addEventListener('click', () => {
+    let rating = star.getAttribute('data-value');
+    highlightStars(rating);
+  });
 });
 
-// Stäng pop-up
-stängPopupKnapp.addEventListener("click", () => {
-  feedbackFönster.classList.add("dold");
-});
+function highlightStars(rating) {
+  stars.forEach(star => {
+    if (star.getAttribute('data-value') <= rating) {
+      star.classList.add('active');
+    } else {
+      star.classList.remove('active');
+    }
+  });
+}
 
-// Hantera formulärinlämning
-feedbackFormulär.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  const betyg = document.getElementById("betyg").value;
-  const kommentar = document.getElementById("kommentar").value;
-
-  console.log("Betyg:", betyg);
-  console.log("Kommentar:", kommentar);
-
-  alert("Tack för din feedback!");
-
-  feedbackFormulär.reset();
-  feedbackFönster.classList.add("dold");
-});
-
-// Funktion för knapp för att stänga Gör-så-här-rutan
-const instructionsPopup = document.getElementById('instructions');
-const instructionsClose = document.getElementById('instructions-close');
-
-instructionsClose.addEventListener('click', function() {
-    instructionsPopup.style.display = 'none';
-});
-
-// Funktion för "HJÄLP"-knapp i menyraden som öppnar Gör-så-här-rutan
-// const HJÄLPKNAPP = document.getElementById('HJÄLPKNAPP');
-
-// HJÄLPKNAPP.addEventListener('click', function() {
-//     instructionsPopup.style.display = 'flex';
-// });
+function submitFeedback() {
+  const feedback = document.querySelector('.feedback-textarea').value;
+  const rating = document.querySelectorAll('.feedback-stars .star.active').length;
+  alert(`Tack för din feedback!\nBetyg: ${rating} stjärnor\nKommentar: ${feedback}`);
+}
