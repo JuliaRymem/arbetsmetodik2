@@ -44,23 +44,58 @@ function updateCartDisplayer() { //kundvagns funktionen, här visas item namn oc
 
     cart.forEach(item => { //Lägger till item till kundvagnen
         const listitem = document.createElement('li');
-        listitem.textContent = `x${item.quantity} ${item.name} ${item.price.toFixed(2)}kr`;
+        listitem.textContent = `x${item.quantity} ${item.name} ${item.price.toFixed(0)}kr`;
+        listitem.style.color = 'white';
 
         const removeButton = document.createElement('button'); //skapar ta bort button
         removeButton.textContent = 'X';
-        removeButton.style.marginLeft = '5px';
-        removeButton.style.padding = '2px 4px';
+        removeButton.style.marginLeft = '10px';
+        removeButton.style.padding = '2px 6px';
         removeButton.style.backgroundColor = '#f80606';
         removeButton.style.color = '#FFFFFF';
         removeButton.style.border = '#000000 solid 2px';
+        removeButton.style.borderRadius = '5px';
         removeButton.onclick = () => removeFromCart(item.name, item.price); //sätter in removeFromCart funktionen
 
         listitem.appendChild(removeButton); //lägger till removeButton till listitem
         cartItemNameContainer.appendChild(listitem); //lägger till listitem till cartItemNameContainer, kundvagnen
     });
 
-    totalItemPrice.textContent = totalPrice.toFixed(2); //uppdaterar total priset på display
+    totalItemPrice.textContent = totalPrice.toFixed(0); //uppdaterar total priset på display
 }
+
+// Hämtar bilder från db.js och lägger in i menyn
+const featuredImg1 = document.getElementById('featured-img-1');
+const featuredPizza = db.pizzas.find(pizza => pizza.id === 'choose-your-own-new-haven-style-pizza-6-pack');
+featuredImg1.src = featuredPizza.img;
+
+const featuredImg2 = document.getElementById('featured-img-2');
+const featuredDrink = db.drinks.find(drink => drink.id === 'hong-kong-boba-tea-kit-for-6');
+featuredImg2.src = featuredDrink.img;
+
+const pizzaImg1 = document.getElementById('pizza-img-1');
+const pizza1 = db.pizzas.find(pizza => pizza.id === 'choose-your-own-new-haven-style-pizza-6-pack');
+pizzaImg1.src = pizza1.img;
+
+const pizzaImg2 = document.getElementById('pizza-img-2');
+const pizza2 = db.pizzas.find(pizza => pizza.id === '23699-choose-your-own-thin-crust-pizza-4-pack');
+pizzaImg2.src = pizza2.img;
+
+const pizzaImg3 = document.getElementById('pizza-img-3');
+const pizza3 = db.pizzas.find(pizza => pizza.id === 'new-haven-style-mozzarella-pizza-6-pack');
+pizzaImg3.src = pizza3.img;
+
+const drinkImg1 = document.getElementById('drink-img-1');
+const drink1 = db.drinks.find(drink => drink.id === 'hong-kong-boba-tea-kit-for-6');
+drinkImg1.src = drink1.img;
+
+const drinkImg2 = document.getElementById('drink-img-2');
+const drink2 = db.drinks.find(drink => drink.id === 'guys-caliente-margaritas-for-12');
+drinkImg2.src = drink2.img;
+
+const drinkImg3 = document.getElementById('drink-img-3');
+const drink3 = db.drinks.find(drink => drink.id === 'woodford-reserve-mint-julep-syrup');
+drinkImg3.src = drink3.img;
 
 // Hämta element från HTML
 const kontaktLink = document.getElementById("kontaktLink");

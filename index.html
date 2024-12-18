@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Bella Tavola - Det vackra bordet</title>
+    <script src="db.js" defer></script>
     <script src="script.js" defer></script>
+    <link rel="icon" href="loggaas.webp">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,13 +24,13 @@
             <p class="subtitle">"Det vackra bordet"</p>
         </section>
     </header>
-    <!--Main-->
-    <main class="main-menu">
+       <!--Main-->
+       <main class="main-menu">
         <!--Featured Food and Beverages-->
         <section class="section-menu">
-            <h2>Featured Food and Beverages</h2>
+            <h2>Månadens Mat och Dryck</h2>
             <article class="menu-card">
-                    <img class="menu-item-img" src="https://goldbelly.imgix.net/uploads/showcase_media_asset/image/131840/choose-your-own-new-haven-style-pizza-6-pack.ab82828afc6172cdd4017556c15e36dd.jpg?ixlib=react-9.0.2&auto=format&ar=1%3A1" alt="Pizza-2">
+                    <img class="menu-item-img" id="featured-img-1" src="" alt="Pizza-2">
                     <article class="menu-text">
                         <h3>New Haven-Style Pizza</h3>
                         <p>Mumsig tunn pizza gjord i Haven-Style med tomat skivor på toppen</p>
@@ -36,7 +38,7 @@
                     <button class="menu-button" onclick="addItemtoCart('New Haven-Style Pizza', 79)">Order <br> 79kr</button>
                 </article>
                 <article class="menu-card">
-                    <img class="menu-item-img" src="https://goldbelly.imgix.net/uploads/showcase_media_asset/image/108725/hong-kong-boba-tea-kit-for-6.63841de36d8e5edfafa13023fc303285.jpg?ixlib=react-9.0.2&auto=format&ar=1%3A1" alt="Drink-0">
+                    <img class="menu-item-img" id="featured-img-2" src="" alt="Drink-0">
                     <article class="menu-text">
                         <h3>Hong Kong Boba Tea</h3>
                         <p>Kall och skönt tea med tapoica pärlor</p>
@@ -46,7 +48,7 @@
             <!--Pizza Section-->
             <h2>Pizza</h2>
             <article class="menu-card">
-                <img class="menu-item-img" src="https://goldbelly.imgix.net/uploads/showcase_media_asset/image/131840/choose-your-own-new-haven-style-pizza-6-pack.ab82828afc6172cdd4017556c15e36dd.jpg?ixlib=react-9.0.2&auto=format&ar=1%3A1" alt="Pizza-2">
+                <img class="menu-item-img" id="pizza-img-1" src="" alt="Pizza-2">
                 <article class="menu-text">
                     <h3>New Haven-Style Pizza</h3>
                     <p>Mumsig tunn pizza gjord i Haven-Style med tomat skivor på toppen</p>
@@ -54,7 +56,7 @@
                 <button class="menu-button" onclick="addItemtoCart('New Haven-Style Pizza', 79)">Order <br> 79kr</button>
             </article>
             <article class="menu-card">
-                <img class="menu-item-img" src="https://goldbelly.imgix.net/uploads/showcase_media_asset/image/115101/plain-thin-crust-pizza-4-pack.5540e9d166db2f0853643c6517e4a225.jpg?ixlib=react-9.0.2&auto=format&ar=1%3A1" alt="Pizza-11">
+                <img class="menu-item-img" id="pizza-img-2" src="" alt="Pizza-11">
                 <article class="menu-text">
                     <h3>Plain Thin Crust Pizza</h3>
                     <p>Vanlig tunn pizza</p>
@@ -62,7 +64,7 @@
                 <button class="menu-button" onclick="addItemtoCart('Plain Thin Crust Pizza', 79)">Order <br> 79kr</button>
             </article>
             <article class="menu-card">
-                <img class="menu-item-img" src="https://goldbelly.imgix.net/uploads/showcase_media_asset/image/132144/new-haven-style-mozzarella-pizza-6-pack.8e8a38db57935f5cb6afa4202b966135.jpg?ixlib=react-9.0.2&auto=format&ar=1%3A1" alt="Pizza-13">
+                <img class="menu-item-img" id="pizza-img-3" src="" alt="Pizza-13">
                 <article class="menu-text">
                     <h3>New Haven-Style Mozzarella Pizza</h3>
                     <p>Mumsig tunn pizza gjord i Haven-Style med extra mozzarella</p>
@@ -72,7 +74,7 @@
             <!--Dryck Section-->
             <h2>Dryck</h2>
                 <article class="menu-card">
-                    <img class="menu-item-img" src="https://goldbelly.imgix.net/uploads/showcase_media_asset/image/108725/hong-kong-boba-tea-kit-for-6.63841de36d8e5edfafa13023fc303285.jpg?ixlib=react-9.0.2&auto=format&ar=1%3A1" alt="Drink-0">
+                    <img class="menu-item-img" id="drink-img-1" src="" alt="Drink-0">
                     <article class="menu-text">
                         <h3>Hong Kong Boba Tea</h3>
                         <p>Kall och skönt tea med tapoica pärlor</p>
@@ -80,7 +82,7 @@
                     <button class="menu-button" onclick="addItemtoCart('Hong Kong Boba Tea', 59)">Order <br> 59kr</button>
                 </article>
                 <article class="menu-card">
-                    <img class="menu-item-img" src="https://goldbelly.imgix.net/uploads/showcase_media_asset/image/126836/guys-caliente-margaritas-for-12.ca8c6bc06b8f1039549385ffcebc749d.jpg?ixlib=react-9.0.2&auto=format&ar=1%3A1" alt="Drink-1">
+                    <img class="menu-item-img" id="drink-img-2" src="" alt="Drink-1">
                     <article class="menu-text">
                         <h3>Guy's Caliente Margarita</h3>
                         <p>Guy Fieri's kända Margarita dryck</p>
@@ -88,7 +90,7 @@
                     <button class="menu-button" onclick="addItemtoCart('Guy´s Caliente Margarita', 69)">Order <br> 69kr</button>
                 </article>
                 <article class="menu-card">
-                    <img class="menu-item-img" src="https://goldbelly.imgix.net/uploads/showcase_media_asset/image/134036/woodford-reserve-mint-julep-syrup.ef523ac7cbae5f4aba6b058207f490d2.jpg?ixlib=react-9.0.2&auto=format&ar=1%3A1" alt="Drink-2">
+                    <img class="menu-item-img" id="drink-img-3" src="" alt="Drink-2">
                     <article class="menu-text">
                         <h3>Woodford Reserve Mint Julep Syrup</h3>
                         <p>Kall glas av mint julep sirap</p>
@@ -111,11 +113,11 @@
           <li><a href="https://www.google.com/maps/place/Bahamas/@24.1964689,-79.2505745,9z/data=!3m1!4b1!4m15!1m8!3m7!1s0x88d69a3bb2480f3d:0x133eb4836ac779e5!2sBahamas!3b1!8m2!3d25.03428!4d-77.39628!16zL20vMDE2MHc!3m5!1s0x892932baf1cdd125:0xc7beadfff3868ae3!8m2!3d24.3321229!4d-78.0195387!16s%2Fg%2F11bw3gq281?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" id="hittaHitLink">Hitta oss</a></li>
           <li><a href="#" id="instructionLink">Hjälp med beställning</a></li>
         </ul>
-        <div class="social-icons">
+        <article class="social-icons">
           <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
           <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
           <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
-        </div>
+        </article>
         <p>&copy; 2024 Arbetsmetodik || Projektuppgift - grupp 8</p>
       </footer>
   
