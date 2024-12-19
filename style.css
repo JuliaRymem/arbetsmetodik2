@@ -1,44 +1,323 @@
-/* Bakgrund för hela sidan */
-body {
-    background-color: #022143; /* Mörkblå bakgrund */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: poppins;
+}
+/* Header-stil */
+.header {
+    background-color: #022143; /* Blå bakgrund */
+    color: white;
+    padding: 10px 20px;
+    display: flex;       
+    justify-content: center;      
+    align-items: center; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+/* Logotyp-stil */
+.logo-container .logo {
+    width: 70px; /* Storlek på loggan */
+    margin-right: 10px; /* Avstånd mellan logga och text */
+}
+  
+/* Titel och undertitel-stil */
+.title-container .title {
+    font-size: 1.8rem; /* Titelstorlek */
+    font-weight: bold;
+    color: #0e8733;
+}
+  
+.title-container .subtitle {
+    font-size: 1rem; /* Undertitel */
+    font-style: italic;
+}
+/*Main Meny*/
+.main-menu {
+    min-height: 100vh;
+    width: 100vw;
+    background-color: #022143;
+    padding: 20px;
+    color: #0e8733;
+    
+}
+.section-menu {
+    background-color: #FFEBDE;
+    padding: 5px;
+}
+.section-menu h2 {
+    text-align: center;
+    font-size: 5vw;
+    margin: 20px;
+}
+.menu-card {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-  }
+    gap: 5vw;
+    margin: 20px;
+}
+.menu-item-img {
+    width: 20vw;
+    border: #000000 solid 2px;
+}
+.menu-text {
+    margin: 10px;
+    width: 100vw;
+}
+.menu-text h3 {
+    font-size: 3vw;
+}
+.menu-text p {
+    font-size: 2.5vw;
+}
+.menu-button {
+    cursor: pointer;
+    width: 20vw;   
+    height: 10%;
+    padding: 10px;
+    font-size: 3vw;
+    background-color: #f80606;
+    color: #FFFFFF;
+    border: #000000 solid 3px;
+    border-radius: 5px;
+}
+.section-cart li {
+    list-style: none;
+    font-size: 3.5vw;
+    margin: 2px 0;
+}
+.section-cart h2 {
+    margin-top: 20px;
+}
+.total-h3 {
+    margin: 10px 0;
+}
+.purchase-button {
+    cursor: pointer;
+    margin: 10px 0;
+    background-color: #f80606;
+    color: #FFFFFF;
+    padding: 10px;
+    border: #000000 2px solid;
+    border-radius: 5px;
+}
+.purchase-button:hover, .menu-button:hover {
+  background-color: #0e8733;
+}
+/* Footer sektionen */
+.footer {
+    font-weight: 200;
+    background-color: #022143;
+    color: white;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+}
+footer p {
+    font-weight: 100;
+    justify-content: center;
+    color: #ffebde;
+    font-size: 12px;
+}
   
-  /* Feedback-container */
-  .feedback-container {
-    background-color: #FFD33D; /* Gul feedback-box */
+/* Regler för länkarna i footern */
+.footer-links {
+    list-style-type: none;
+}
+  
+.footer-links li {
+    margin: 10px 0; /* mellanrum mellan länkarna */
+}
+  
+.footer-links a {
+    font-weight: 600;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+}
+  
+.footer-links li a:hover {
+    text-decoration: underline;
+    color: #0e8733;
+}
+  
+/* Ikoner */
+  .social-icons {
+    text-align: center;
+    margin: 10px 0;
+}
+  
+.social-icons a {
+    color: white;
+    font-size: 24px;
+    margin: 0 10px;
+    text-decoration: none;
+}
+  
+.social-icons a:hover {
+    color: #0e8733;
+}
+/* Pop-up stil */
+.popup {
+    display: none; /* Döljer pop-up fönstren som standard */
+    position: fixed;
+    z-index: 9999; /* Se till att popupen ligger ovanpå allt annat */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /*Mörk transparent bakgrund för att skapa overlay*/
+    overflow: auto;
+}
+  
+/* Pop-up innehållet */
+.popup-content {
+    font-weight: 200;
+    background-color: #ffebde;
+    color: #7d360b;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 400px;
+    text-align: left;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Skugga för djup */
+}
+  
+/* Rubrik i popup */
+.popup h2 {
+    font-weight: 600;
+    margin-top: 0;
+    color: #e88b00;
+}
+  
+/* Stäng-knappen (kryss) */
+.close {
+    color: red;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+  
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+  
+/* skugga på pop-up fönstret*/
+.popup-content {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+/*Instruktion Pop up*/
+.instructions {
+    display: none; /* Ändra till :none för att dölja*/
+    justify-content: center;
+    align-items: center;
+    width: 100svw;
+    height: 100svh;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #0e8733;
+    font-size: 1rem;
+    z-index: 1000;
+}
+.instructions-content {
+    width: 90%;
+    height: 90%;
+    border: 5svw solid #022143;
+    background-color: #FFEBDE;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+.instructions-head {
+    width: 100%;
+    height: 10svh;
+    color: #022143;
+    font-size: 1.3rem;
+    padding: 2svw;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.instructions-close {
+    cursor: pointer;
+    min-width: 9svmin;
+    min-height: 9svmin;
+    max-height: 9svmin;
+    max-width: 9svmin;
+    border-radius: 50%;
+    background-color: #f80606;
+    color: #FFEBDE;
+}
+.instructions-steps {
+    width: 100%;
+    height: 80svh;
+    padding: 2svw;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    overflow-y: auto;
+}
+.step-number {
+    min-width: 7svmin;
+    min-height: 7svmin;
+    max-height: 7svmin;
+    max-width: 7svmin;
+    border-radius: 50%;
+    background-color: #022143;
+    font-size: 1rem;
+    color: #FFEBDE;
+    align-content: center;
+    text-align: center;
+    display: inline-block;
+}
+.step-text {
+    font-size: 1rem;
+}
+
+ /* Feedback-container */
+ .feedback-container {
+    display: none;
+    background-color: #022143; /* Blå feedback-box */
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding: 20px;
     text-align: center;
-    max-width: 400px;
     width: 100%;
-  }
+    color: #FFFFFF;
+}
   
-  .feedback-heading {
+.feedback-heading {
     font-size: 1.5rem;
     margin-bottom: 10px;
-    color: #333;
-  }
+}
   
-  .feedback-subtext {
+.feedback-subtext {
     font-size: 1rem;
     margin-bottom: 20px;
-  }
+}
   
-  /* Stjärnor */
-  .feedback-stars {
+/* Stjärnor */
+.feedback-stars {
     display: flex;
     justify-content: center;
     gap: 10px;
     margin: 15px 0;
-  }
+}
   
-  .feedback-stars .star {
+.feedback-stars .star {
     width: 2.5rem;
     height: 2.5rem;
     background: white;
@@ -46,16 +325,15 @@ body {
     clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
     cursor: pointer;
     transition: background 0.3s ease, border 0.3s ease;
-  }
+}
   
-  .feedback-stars .star.active,
-  .feedback-stars .star:hover {
+.feedback-stars .star.active, .feedback-stars .star:hover {
     background: #ffcc00; /* Gul fyllning */
     border: 2px solid #fff; /* Vit kant */
-  }
+}
   
-  /* Feedback-ruta */
-  .feedback-textarea {
+/* Feedback-ruta */
+.feedback-textarea {
     width: 90%;
     height: 80px;
     padding: 10px;
@@ -64,10 +342,10 @@ body {
     font-size: 1rem;
     margin-top: 10px;
     resize: none;
-  }
+}
   
-  /* Skicka-knapp */
-  .feedback-button {
+/* Skicka-knapp */
+.feedback-button {
     margin-top: 15px;
     padding: 10px 20px;
     background-color: #333;
@@ -77,9 +355,8 @@ body {
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
+}
   
-  .feedback-button:hover {
-    background-color: #555;
-  }
-  
+.feedback-button:hover {
+    background-color: #0e8733;
+}

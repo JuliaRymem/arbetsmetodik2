@@ -1,28 +1,205 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Feedback Popup</title>
-  <link rel="stylesheet" href="style.css"> <!-- Länkar till CSS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Bella Tavola - Det vackra bordet</title>
+    <script src="db.js" defer></script>
+    <script src="script.js" defer></script>
+    <link rel="icon" href="loggaas.webp">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anta&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 <body>
-  <div class="feedback-container">
-    <h1 class="feedback-heading">Tack för din beställning!</h1>
-    <p class="feedback-subtext">Hur upplevde du oss?</p>
-    <!-- Stjärnor -->
-    <div class="feedback-stars">
-      <i class="star" data-value="1"></i>
-      <i class="star" data-value="2"></i>
-      <i class="star" data-value="3"></i>
-      <i class="star" data-value="4"></i>
-      <i class="star" data-value="5"></i>
-    </div>
-    <!-- Feedback-ruta -->
-    <textarea class="feedback-textarea" placeholder="Skriv din feedback här..."></textarea>
-    <br>
-    <button class="feedback-button" onclick="submitFeedback()">Skicka</button>
-  </div>
-  <script src="feedback-script.js"></script> <!-- Länkar till JavaScript -->
+    <!--Header-->
+    <header class="header">
+        <section class="logo-container">
+            <img src="loggaas.webp" alt="Logotyp" class="logo">
+        </section>
+        <section class="title-container">
+            <h1 class="title">La Bella Tavola</h1>
+            <p class="subtitle">"Det vackra bordet"</p>
+        </section>
+    </header>
+       <!--Main-->
+       <main class="main-menu">
+        <!--Featured Food and Beverages-->
+        <section class="section-menu">
+            <h2>Månadens Mat och Dryck</h2>
+            <article class="menu-card">
+                    <img class="menu-item-img" id="featured-img-1" src="" alt="Pizza-2">
+                    <article class="menu-text">
+                        <h3>New Haven-Style Pizza</h3>
+                        <p>Mumsig tunn pizza gjord i Haven-Style med tomat skivor på toppen</p>
+                    </article>
+                    <button class="menu-button" onclick="addItemtoCart('New Haven-Style Pizza', 79)">Order <br> 79kr</button>
+                </article>
+                <article class="menu-card">
+                    <img class="menu-item-img" id="featured-img-2" src="" alt="Drink-0">
+                    <article class="menu-text">
+                        <h3>Hong Kong Boba Tea</h3>
+                        <p>Kall och skönt tea med tapoica pärlor</p>
+                    </article>
+                    <button class="menu-button" onclick="addItemtoCart('Hong Kong Boba Tea', 59)">Order <br> 59kr</button>
+                </article>
+            <!--Pizza Section-->
+            <h2>Pizza</h2>
+            <article class="menu-card">
+                <img class="menu-item-img" id="pizza-img-1" src="" alt="Pizza-2">
+                <article class="menu-text">
+                    <h3>New Haven-Style Pizza</h3>
+                    <p>Mumsig tunn pizza gjord i Haven-Style med tomat skivor på toppen</p>
+                </article>
+                <button class="menu-button" onclick="addItemtoCart('New Haven-Style Pizza', 79)">Order <br> 79kr</button>
+            </article>
+            <article class="menu-card">
+                <img class="menu-item-img" id="pizza-img-2" src="" alt="Pizza-11">
+                <article class="menu-text">
+                    <h3>Plain Thin Crust Pizza</h3>
+                    <p>Vanlig tunn pizza</p>
+                </article>
+                <button class="menu-button" onclick="addItemtoCart('Plain Thin Crust Pizza', 79)">Order <br> 79kr</button>
+            </article>
+            <article class="menu-card">
+                <img class="menu-item-img" id="pizza-img-3" src="" alt="Pizza-13">
+                <article class="menu-text">
+                    <h3>New Haven-Style Mozzarella Pizza</h3>
+                    <p>Mumsig tunn pizza gjord i Haven-Style med extra mozzarella</p>
+                </article>
+                <button class="menu-button" onclick="addItemtoCart('New Haven-Style Mozzarella Pizza', 78)">Order <br> 78kr</button>
+            </article>
+            <!--Dryck Section-->
+            <h2>Dryck</h2>
+                <article class="menu-card">
+                    <img class="menu-item-img" id="drink-img-1" src="" alt="Drink-0">
+                    <article class="menu-text">
+                        <h3>Hong Kong Boba Tea</h3>
+                        <p>Kall och skönt tea med tapoica pärlor</p>
+                    </article>
+                    <button class="menu-button" onclick="addItemtoCart('Hong Kong Boba Tea', 59)">Order <br> 59kr</button>
+                </article>
+                <article class="menu-card">
+                    <img class="menu-item-img" id="drink-img-2" src="" alt="Drink-1">
+                    <article class="menu-text">
+                        <h3>Guy's Caliente Margarita</h3>
+                        <p>Guy Fieri's kända Margarita dryck</p>
+                    </article>
+                    <button class="menu-button" onclick="addItemtoCart('Guy´s Caliente Margarita', 69)">Order <br> 69kr</button>
+                </article>
+                <article class="menu-card">
+                    <img class="menu-item-img" id="drink-img-3" src="" alt="Drink-2">
+                    <article class="menu-text">
+                        <h3>Woodford Reserve Mint Julep Syrup</h3>
+                        <p>Kall glas av mint julep sirap</p>
+                    </article>
+                    <button class="menu-button" onclick="addItemtoCart('Woodford Reserve Mint Julep Syrup', 39)">Order <br> 39kr</button>
+                </article>
+        </section>
+        <section class="section-cart">
+            <h2>Kundvagn</h2>
+            <ul id="cart-items"></ul>
+            <h3 class="total-h3">Total <span id="total-price">0</span>kr</h3>
+            <button class="purchase-button" onclick="feedbackPopUp()">Beställ</button>
+        </section>
+    </main>
+    <!--Footer-->
+    <footer class="footer">
+        <ul class="footer-links">
+          <li><a href="#" id="omOssLink">Om oss</a></li>
+          <li><a href="#" id="kontaktLink">Kontakt</a></li>
+          <li><a href="https://www.google.com/maps/place/Bahamas/@24.1964689,-79.2505745,9z/data=!3m1!4b1!4m15!1m8!3m7!1s0x88d69a3bb2480f3d:0x133eb4836ac779e5!2sBahamas!3b1!8m2!3d25.03428!4d-77.39628!16zL20vMDE2MHc!3m5!1s0x892932baf1cdd125:0xc7beadfff3868ae3!8m2!3d24.3321229!4d-78.0195387!16s%2Fg%2F11bw3gq281?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" id="hittaHitLink">Hitta oss</a></li>
+          <li><a href="#" id="instructionLink">Hjälp med beställning</a></li>
+        </ul>
+        <article class="social-icons">
+          <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+          <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+        </article>
+        <p>&copy; 2024 Arbetsmetodik || Projektuppgift - grupp 8</p>
+      </footer>
+  
+      <!-- Pop-up för Kontakt -->
+      <section id="kontaktPopup" class="popup">
+        <article class="popup-content">
+          <span class="close" id="closeKontakt">&times;</span>
+          <h2>Kontakt</h2>
+          <p>
+            Hos oss ska du som gäst vara mätt, belåten och 100% nöjd! Du är alltid
+            välkommen att höra av dig till oss med dina åsikter, vare sig det är
+            ris eller ros. Vi tar åt oss och jobbar hela tiden på att förbättra
+            din upplevelse. <br /><br />
+            <strong>Har du något på hjärtat?</strong><br />
+            Vi ser fram emot din kontakt och svarar så snart vi kan! <br /><br />
+            <strong>Mail:</strong> info@donotmail.nu <br />
+            <strong>Telefonnummer:</strong> 012-3456789
+          </p>
+        </article>
+      </section>
+  
+      <!-- Pop-up för Om oss -->
+      <section id="omOssPopup" class="popup">
+        <article class="popup-content">
+          <span class="close" id="closeOmOss">&times;</span>
+          <h2>Om oss</h2>
+          <p>
+            Vår meny kommer från kontinenten med världens äldsta matkultur och
+            rätterna har genomgått förbättringar i hundratals år innan de når din
+            tallrik. Varje generation av kockar och matentusiaster har noggrant
+            förädlat recepten och teknikerna, vilket har resulterat i en
+            kontinuerlig och långsam utveckling av smaker och kvalitet.
+            <br /><br />
+            Vår servering däremot, den är snabb. Med andra ord erbjuder vi
+            kvalitativ mat – snabbt. <br /><br />Vår idé är att genom
+            tillgänglighet, högkvalitativa råvaror, intressant inredning och
+            (såklart) med mat från alla hörn erbjuda riktiga pizzor till bra pris.
+          </p>
+        </article>
+    </section>
+
+      <!--Instruktion Pop-Up-->
+      <section class="instructions popup" id="instructions">
+        <article class="instructions-content" id="instructions-content">
+            <article class="instructions-head" id="instructions-head">
+                <p class="instructions-title" id="instructions-title">SÅ BESTÄLLER DU</p>
+                <button class="instructions-close" id="instructions-close">&times;</button>
+            </article>
+            <article class="instructions-steps" id="instructions-steps">
+                    <p class="step-number">1</p>
+                    <p class="step-text">Tryck på + bredvid en rätt för att lägga till i varukorgen</p>
+
+                    <p class="step-number">2</p>
+                    <p class="step-text">Tryck på varukorgen längst ner på sidan för att gå till kassan</p>
+
+                    <p class="step-number">3</p>
+                    <p class="step-text">Granska er beställning och gör eventuella ändringar</p>
+
+                    <p class="step-number">4</p>
+                    <p class="step-text">Tryck på "Lägg beställning" när ni är nöjda med erat val</p>
+
+                    <p class="step-number">5</p>
+                    <p class="step-text">Njut av sällskapet, så kommer vi ut med maten strax. Smaklig måltid!</p>
+            </article>
+        </article>
+    </section>
+
+    <section class="feedback-container popup" id="feedback-container">
+        <h1 class="feedback-heading">Tack för din beställning!</h1>
+        <p class="feedback-subtext">Hur upplevde du oss?</p>
+        <!-- Stjärnor -->
+        <article class="feedback-stars">
+          <i class="star" data-value="1"></i>
+          <i class="star" data-value="2"></i>
+          <i class="star" data-value="3"></i>
+          <i class="star" data-value="4"></i>
+          <i class="star" data-value="5"></i>
+        </article>
+        <!-- Feedback-ruta -->
+        <textarea class="feedback-textarea" placeholder="Skriv din feedback här..." autocomplete="off"></textarea>
+        <br>
+        <button class="feedback-button" onclick="submitFeedback()">Skicka</button>
+    </section>
 </body>
 </html>
