@@ -45,7 +45,6 @@ function updateCartDisplayer() { //kundvagns funktionen, här visas item namn oc
     cart.forEach(item => { //Lägger till item till kundvagnen
         const listitem = document.createElement('li');
         listitem.textContent = `x${item.quantity} ${item.name} ${item.price.toFixed(0)}kr`;
-        listitem.style.color = 'white';
 
         const removeButton = document.createElement('button'); //skapar ta bort button
         removeButton.textContent = 'X';

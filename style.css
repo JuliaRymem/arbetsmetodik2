@@ -43,7 +43,7 @@ body {
     color: #0e8733;
     
 }
-.section-menu {
+.section-menu, .section-cart {
     background-color: #FFEBDE;
     padding: 5px;
 }
